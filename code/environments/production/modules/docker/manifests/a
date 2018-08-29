@@ -1,0 +1,42 @@
+0a1
+> 
+3,5c4,8
+< $pacotes = ['apt-transport-https','ca-certificates','curl','software-properties-common']
+< $distro = $facts['os']['distro']['codename']
+< $repositorio = "/usr/bin/curl -fsSL https://download.docker.com/linux/ubuntu/gpg | /usr/bin/apt-key add - ; /usr/bin/add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $distro stable' ; /usr/bin/apt update "
+---
+>   $pacotes = ['apt-transport-https','ca-certificates','curl','software-properties-common']
+>   
+>   $distro = $facts['os']['distro']['codename']
+> 
+>   $repositorio = "/usr/bin/curl -fsSL https://download.docker.com/linux/ubuntu/gpg | /usr/bin/apt-key add - ; /usr/bin/add-apt-repositoy 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $distro stable' ; /usr/bin/apt update "
+9c12
+<         ensure => present
+---
+>   ensure => present
+11a15
+> 
+13c17
+<         command => $repositorio
+---
+>   command => $repositorio
+17c21
+<         ensure => present
+---
+>   ensure => present
+21,25c25,27
+<         ensure => running,
+<         enable => true,
+<         require => Package['docker-ce']
+<         }
+< 
+---
+>   ensure => running,
+>   enable => true,
+>   require => Package['docker-ce']
+27a30,34
+> 
+> 
+> 
+> 
+> }
